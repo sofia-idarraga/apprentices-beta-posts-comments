@@ -13,16 +13,15 @@ public abstract class DomainUpdater {
     public DomainUpdater() {
     }
 
-    protected void listen(Consumer<? extends DomainEvent> event){
+    protected void listen(Consumer<? extends DomainEvent> event) {
         this.listeners.add((Consumer<? super DomainEvent>) event);
     }
 
-    public final void applyEvent(DomainEvent domainEvent){
-        this.listeners.forEach( consumer -> {
+    public final void applyEvent(DomainEvent domainEvent) {
+        this.listeners.forEach(consumer -> {
             try {
                 consumer.accept(domainEvent);
-            }catch (ClassCastException classCastException){
-
+            } catch (ClassCastException classCastException) {
             }
         });
     }

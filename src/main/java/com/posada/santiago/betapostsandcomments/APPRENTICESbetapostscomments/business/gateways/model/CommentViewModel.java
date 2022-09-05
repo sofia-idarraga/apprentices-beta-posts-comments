@@ -10,7 +10,7 @@ public class CommentViewModel {
     public CommentViewModel() {
     }
 
-    public CommentViewModel(String id, String commentId, String postId, String author, String content) {
+    public CommentViewModel(String id,  String postId, String author, String content) {
         this.id = id;
         this.postId = postId;
         this.author = author;
