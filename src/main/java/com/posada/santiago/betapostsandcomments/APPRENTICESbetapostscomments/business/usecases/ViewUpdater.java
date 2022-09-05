@@ -9,6 +9,9 @@ import com.posada.santiago.betapostsandcomments.APPRENTICESbetapostscomments.dom
 
 import java.util.ArrayList;
 
+
+//This works as the PostChange. We use the repository to act according to the event.
+//How this class extends from DomainUpdater we must use the listen method
 public class ViewUpdater extends DomainUpdater {
 
     private final DomainViewRepository repository;

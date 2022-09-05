@@ -13,10 +13,13 @@ public abstract class DomainUpdater {
     public DomainUpdater() {
     }
 
+    //We add to the list of listeners an event that must be a consumer which extends from Domain Event
     protected void listen(Consumer<? extends DomainEvent> event) {
         this.listeners.add((Consumer<? super DomainEvent>) event);
     }
 
+    // We will apply the events that are collected in "listeners"
+    // The way we execute a consumer is with accept. The consumer "do something" and doesn't return anything
     public final void applyEvent(DomainEvent domainEvent) {
         this.listeners.forEach(consumer -> {
             try {

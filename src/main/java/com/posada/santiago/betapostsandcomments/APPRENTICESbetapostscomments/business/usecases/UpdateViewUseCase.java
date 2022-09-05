@@ -15,6 +15,9 @@ public class UpdateViewUseCase implements Consumer<DomainEvent> {
         this.updater = updater;
     }
 
+    // This use case implements Consumer, that's why we need to add the accept method
+    // All consumers do "something" and return anything, that's why this method is a void.
+    // Accept will publish the event (to Rabbit) and apply it to the view updater
     @Override
     public void accept(DomainEvent domainEvent){
         bus.publish(domainEvent);
